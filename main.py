@@ -1,7 +1,12 @@
 import requests
+from dotenv import load_dotenv
+import os
 
-# Replace YOUR_ACCESS_TOKEN with your actual Instagram access token
-access_token = 'YOUR_ACCESS_TOKEN'
+# Load environment variables from .env file
+load_dotenv()
+
+# Get the Instagram API access token from the environment variables
+access_token = os.getenv("INSTAGRAM_ACCESS_TOKEN")
 
 # Get the list of accounts you're subscribed to
 subscriptions_response = requests.get(f'https://api.instagram.com/v1/users/self/follows?access_token={access_token}')
